@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>HTML5</title>
+  <style>
+
+    .list {
+        border: 3px solid black;
+        border-radius: 50px;
+        margin: 0px 15px 15px;
+        padding-left: 15px;
+        background-color: gray;
+        font-family: Verdana;
+    }
+
+    .bord {
+        border: 2px solid red;
+        border-radius: 25px;
+        margin: 0px 15px 15px;
+        padding-left: 15px;
+        background-color: gray;
+        opacity: 0.5;
+        font-family: Verdana;
+    }
+
+    .bord p{
+        font-size: 30px;
+    }
+
+  </style>
+ </head>
+ <body>
+
+    {% for o in obj %}
+        <div class='list'>
+            <h1>{{o.todo_list.title}}</h1>
+            <h2>{{o.todo_list.description}}</h2>
+
+            {% for item in o.items %}
+                <div class='bord'>
+                    <h1>{{item.title}}</h1>
+                    <p>{{item.description}}</p>
+                    <p>{{item.done}}</p>
+                    <input type="checkbox">
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+ </body>
+</html>
