@@ -38,10 +38,14 @@
             <div class='bord'>
                 <h1>{{item.title}}</h1>
                 <p>{{item.description}}</p>
-                <p>{{item.done}}</p>
-                <p>{{item.id}}</p>
-                <input type="checkbox">
+                {% if item.done %}
+                    <p>Выполнено</p>
+                {% else %}
+                    <p>Не Выполнено</p>
+                {% endif %}
+                {% comment %} <input type="checkbox"> {% endcomment %}
                 <p>
+                    <a href={% url 'todo:done' item.id %}>Сделано!</a>
                     <a href={% url 'todo:delete' item.id %}>Delete</a> 
                 </p>
             </div>

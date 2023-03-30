@@ -25,3 +25,8 @@ def register_view(request):
         new_user.save()
         return HttpResponse('Register complete')
     return render(request, 'register.html', {'form': form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('users:login')

@@ -63,6 +63,17 @@ def delete_task(request, id):
         item.delete()
         messages.success(request,  'The item has been deleted successfully.')
         return redirect('todo:list')
+    
+
+def done_task(request, id):
+    item = TodoItem.objects.get(id=id)
+    item.done = True
+    item.save()
+    return redirect('todo:list')
+
+
+def hide_done(request):
+    pass
 
 
 def home_view(request):
